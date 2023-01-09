@@ -35,6 +35,18 @@ CURRENT ROW: detener el calculo en la fila actual.
 Asi: 
 1. Debemos conococer el numero de twet por usuario para esto: 
  ``` sql
+   SELECT 
+   user_id, 
+   tweet_date, 
+   COUNT(tweet_id) AS total_tweet -- COUNT: cuenta los registros en la columna especificada 
+  FROM tweets
+  GROUP BY user_id, tweet_date
+  ORDER BY user_id, tweet_date
+```
+Con la consulta anterior creamos una CTE , para poder consultar información y usamos la funcion de ventana deslizante para calcular el promedio móvil de 3 dias por usuario. 
+
+ ``` sql
+WITH total_tweet AS (
     SELECT 
     user_id, 
     tweet_date, 
@@ -42,4 +54,14 @@ Asi:
   FROM tweets
   GROUP BY user_id, tweet_date
   ORDER BY user_id, tweet_date
-```
+) 
+SELECT 
+  user_id,
+  tweet_date,
+  ROUND(AVG(total_tweet) 
+    OVER(PARTITION BY user_id
+    ORDER BY user_id, tweet_date 
+    ROWS BETWEEN 2 PRECEDING 
+    AND CURRENT ROW ),2) AS rolling_avg_3days
+FROM total_tweet;
+ ```
