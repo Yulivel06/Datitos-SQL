@@ -30,4 +30,16 @@ Palabras claves:
 PRECEDING y FOLLOWING: Para especificar el numero de filas antes o despues de la fila actual que desea incluir en el calculo. 
 UNBOUNDED PRECEDING: indica que se desea incluir cada fila desde el principio del conjunto de datos en sus calculos 
 UNBOUNDED FOLLOWING: indica que se desea incluir cada fila desde el final del conjunto de datos en sus calculos
-CURRENT ROW: detener el calculo en la fila actual
+CURRENT ROW: detener el calculo en la fila actual.
+
+Asi: 
+1. Debemos conococer el numero de twet por usuario para esto: 
+ ``` sql
+    SELECT 
+    user_id, 
+    tweet_date, 
+    COUNT(tweet_id) AS total_tweet
+  FROM tweets
+  GROUP BY user_id, tweet_date
+  ORDER BY user_id, tweet_date
+```
