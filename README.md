@@ -6,7 +6,11 @@
 Los ejercicios son tomados de la pagina DataLemur: [Consulte Aquí](https://datalemur.com/)
  Puedes elegir que dificultad quieres resolver: fácil, medio, dificil. 
 
+
+Ejercicio- dificultad media
+
 ### Promedios móviles de tweets [Pregunta de entrevista de Twitter SQL]
+
 La siguiente tabla contiene información sobre los tweets durante un período de tiempo determinado. Calcule el promedio móvil de 3 días de tweets publicados por cada usuario para cada fecha en que se publicó un tweet. Muestra la identificación del usuario, la fecha del tweet y los promedios móviles redondeados a 2 decimales.
 
 **Suposiciones importantes** :
