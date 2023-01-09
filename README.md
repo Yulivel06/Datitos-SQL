@@ -65,3 +65,4 @@ SELECT
     AND CURRENT ROW ),2) AS rolling_avg_3days
 FROM total_tweet;
  ```
+[Salida](https://github.com/Yulivel06/Ejercicios-SQL/blob/master/output.png)
